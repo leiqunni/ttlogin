@@ -1,0 +1,43 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit1H
+#define Unit1H
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include <ExtCtrls.hpp>
+#include <Menus.hpp>
+#include <ImgList.hpp>
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// IDE で管理されるコンポーネント
+	TTrayIcon *TrayIcon;
+	TGroupBox *grbPath;
+	TLabel *Label1;
+	TLabel *lblPattern;
+	TLabel *lblDirectory;
+	TEdit *edtDirectory;
+	TEdit *edtPatten;
+	TEdit *edtLang;
+	TGroupBox *grbOption;
+	TButton *btnApply;
+	TButton *btnAbout;
+	TCheckBox *CheckBox1;
+	TCheckBox *CheckBox2;
+	TCheckBox *CheckBox3;
+	TPopupMenu *popCom;
+	TImageList *ImageListSmall;
+	void __fastcall btnApplyClick(TObject *Sender);
+private:	// ユーザー宣言
+	void __fastcall TForm1::FindFileRec(String path, String pattern);
+
+public:		// ユーザー宣言
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif
