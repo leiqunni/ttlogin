@@ -979,7 +979,7 @@ object Form1: TForm1
       TabOrder = 1
     end
     object chbMinimized: TCheckBox
-      Left = 161
+      Left = 165
       Top = 21
       Width = 131
       Height = 17
@@ -998,13 +998,14 @@ object Form1: TForm1
     OnClick = btnApplyClick
   end
   object btnAbout: TButton
-    Left = 192
+    Left = 168
     Top = 183
-    Width = 72
+    Width = 96
     Height = 23
     Anchors = [akTop, akRight]
     Caption = 'About'
     TabOrder = 3
+    OnClick = btnAboutClick
   end
   object TrayIcon: TTrayIcon
     PopupMenu = popCom
@@ -1018,6 +1019,9 @@ object Form1: TForm1
   end
   object ImageListSmall: TImageList
     ColorDepth = cd32Bit
+    AllocBy = 32
+    DrawingStyle = dsTransparent
+    ShareImages = True
     Left = 224
     Top = 48
   end

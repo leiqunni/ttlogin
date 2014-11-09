@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2013/03/29 15:39:19.000.517,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Unit1.cpp=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.cpp</Transaction>
-    <Transaction>2013/03/29 15:39:19.000.517,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Unit1.dfm=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.dfm</Transaction>
-    <Transaction>2013/03/29 15:39:19.000.517,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Unit1.h=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.h</Transaction>
-    <Transaction>2013/03/29 15:39:44.000.654,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Project1.cbproj=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++.cbproj</Transaction>
-    <Transaction>2013/03/29 15:39:49.000.501,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++.cbproj=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\ttlogin++.cbproj</Transaction>
-    <Transaction>2013/03/29 22:12:31.000.107,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\inifile.h=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit2.h</Transaction>
-    <Transaction>2013/03/29 22:12:43.000.375,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\main.dfm=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.dfm</Transaction>
-    <Transaction>2013/03/29 22:12:43.000.375,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\main.cpp=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.cpp</Transaction>
-    <Transaction>2013/03/29 22:12:43.000.375,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\main.h=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.h</Transaction>
+    <Transaction>2013/03/29 15:39:19.000.517,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.dfm=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2013/03/29 15:39:19.000.517,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.cpp=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2013/03/29 15:39:19.000.517,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.h=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Unit1.h</Transaction>
+    <Transaction>2013/03/29 15:39:44.000.654,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++.cbproj=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>2013/03/29 15:39:49.000.501,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\ttlogin++.cbproj=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++.cbproj</Transaction>
+    <Transaction>2013/03/29 22:12:31.000.107,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit2.h=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\inifile.h</Transaction>
+    <Transaction>2013/03/29 22:12:43.000.375,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.h=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\main.h</Transaction>
+    <Transaction>2013/03/29 22:12:43.000.375,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.cpp=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\main.cpp</Transaction>
+    <Transaction>2013/03/29 22:12:43.000.375,C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\Unit1.dfm=C:\Documents and Settings\dev\My Documents\RAD Studio\Projects\ttlogin++\main.dfm</Transaction>
+    <Transaction>2014/11/09 02:02:52.000.160,C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\about.dfm=C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\Unit2.dfm</Transaction>
+    <Transaction>2014/11/09 02:02:52.000.160,C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\about.h=C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\Unit2.h</Transaction>
+    <Transaction>2014/11/09 02:09:46.000.164,C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\about.dfm=C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\Unit3.dfm</Transaction>
+    <Transaction>2014/11/09 02:09:46.000.164,C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\about.h=C:\Users\inu\Documents\RAD Studio\Projects\ttlogin\Unit3.h</Transaction>
   </Transactions>
 </BorlandProject>

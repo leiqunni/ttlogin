@@ -1,0 +1,13 @@
+﻿ |　  ttlogin++                     　　　／
+　|　     ver. 2014.11.09         　／
+.　　　＿＿__
+　　　| |・∀・|　／⌒⌒ヽ
+　　　| |＼ 　|`ｲ　 ノハぃ）　ｶｸ 
+.　 (( |_|＿ｨ⌒`｣ ∥' ､ ｿ|
+　　　 ノ と､_入`_,つ λ う
+　ｶｸ
+
+date:	2014/11/09
+author:	793 ◆7BJkZFw08A / DarkEra Software
+email:	leiqunni@yahoo.co.jp
+web:	https://github.com/leiqunni/ttlogin

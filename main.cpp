@@ -1,46 +1,44 @@
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
 
 #include "main.h"
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
-//---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner)
-	: TForm(Owner)
-{
+
+// ---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent *Owner) : TForm(Owner) {
 	IniFile = TPath::Combine(ExtractFilePath(Application->ExeName), "ttlogin++.ini");
 	LangFile = TPath::Combine(ExtractFilePath(Application->ExeName), "lang.ini");
 
-//	SHFILEINFO fi;
-//	ImageListSmall->Handle = SHGetFileInfo(L"", 0, &fi, sizeof(SHFILEINFO),
-//		SHGFI_SYSICONINDEX|SHGFI_SMALLICON);
+	SHFILEINFO fi;
+	ImageListSmall->Handle = SHGetFileInfo(L"", 0, &fi, sizeof(SHFILEINFO), SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
 
 	LoadIni();
+	LangIni();
+
 	InitMenu();
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TForm1::btnApplyClick(TObject *Sender)
-{
+void __fastcall TForm1::btnApplyClick(TObject *Sender) {
 	SaveIni();
 	LoadIni();
 	InitMenu();
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TForm1::InitMenu()
-{
+void __fastcall TForm1::InitMenu() {
 	popCom->Items->Clear();
 
 	if (TDirectory::Exists(edtDirectory->Text)) {
 		if (chbSort->Checked) {
-			FindFile2(popCom->Items , edtDirectory->Text);
+			FindFile2(popCom->Items, edtDirectory->Text);
 		} else {
-			FindFile(popCom->Items , edtDirectory->Text);
+			FindFile(popCom->Items, edtDirectory->Text);
 		}
 	} else {
 		ShowMessage("Directory does not exists");
@@ -51,65 +49,70 @@ void __fastcall TForm1::InitMenu()
 	popCom->Items->Add(item);
 
 	item = new TMenuItem(popCom);
+	item->Name = "pumRestore";
 	item->Caption = "&Restore";
 	item->Default = true;
 	item->OnClick = RestoreClick;
 	popCom->Items->Add(item);
 
 	item = new TMenuItem(popCom);
+	item->Name = "pumExit";
 	item->Caption = "E&xit";
 	item->OnClick = ExitClick;
 	popCom->Items->Add(item);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TForm1::FindFile(TMenuItem *parent, String path)
-{
+void __fastcall TForm1::FindFile(TMenuItem *parent, String path) {
 	TSearchRec sr;
 
 	if (FindFirst(TPath::Combine(path, "*.*"), faAnyFile, sr) == 0) {
 		do {
-			if (sr.Name == "." || sr.Name == "..") continue;
+			if (sr.Name == "." || sr.Name == "..")
+				continue;
 			TMenuItem *item = AddMenu(parent, sr, TPath::Combine(path, sr.Name));
 			if (sr.Attr & faDirectory) {
 				FindFile(item, TPath::Combine(path, sr.Name));
 			}
-		} while (!FindNext(sr));
+		}
+		while (!FindNext(sr));
 	}
 
 	FindClose(sr);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TForm1::FindFile2(TMenuItem *parent, String path)
-{
+void __fastcall TForm1::FindFile2(TMenuItem *parent, String path) {
 	TSearchRec sr;
 
 	if (FindFirst(TPath::Combine(path, "*.*"), faDirectory, sr) == 0) {
 		do {
-			if (sr.Name == "." || sr.Name == ".." || sr.Attr != faDirectory) continue;
+			if (sr.Name == "." || sr.Name == ".." || sr.Attr != faDirectory)
+				continue;
 			TMenuItem *item = AddMenu(parent, sr, TPath::Combine(path, sr.Name));
 			if (sr.Attr & faDirectory) {
 				FindFile2(item, TPath::Combine(path, sr.Name));
 			}
-		} while (!FindNext(sr));
+		}
+		while (!FindNext(sr));
 	}
 
 	if (FindFirst(TPath::Combine(path, edtPattern->Text), faAnyFile, sr) == 0) {
 		do {
-			if (sr.Name == "." || sr.Name == ".." || sr.Attr & faDirectory) continue;
+			if (sr.Name == "." || sr.Name == ".." || sr.Attr & faDirectory)
+				continue;
 			AddMenu(parent, sr, TPath::Combine(path, sr.Name));
-		} while (!FindNext(sr));
+		}
+		while (!FindNext(sr));
 	}
 
 	FindClose(sr);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-TMenuItem* __fastcall TForm1::AddMenu(TMenuItem *parent, TSearchRec sr, String fullPath)
-{
+TMenuItem *__fastcall TForm1::AddMenu(TMenuItem *parent, TSearchRec sr, String fullPath) {
 	SHFILEINFO fi;
- 	SHGetFileInfo(fullPath.w_str(), 0, &fi, sizeof(SHFILEINFO), SHGFI_SYSICONINDEX|SHGFI_SMALLICON);
+	SHGetFileInfo(fullPath.w_str(), 0, &fi, sizeof(SHFILEINFO), SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
 
 	TMenuItem *item = new TMenuItem(parent);
 	item->Caption = sr.Name;
@@ -118,29 +121,29 @@ TMenuItem* __fastcall TForm1::AddMenu(TMenuItem *parent, TSearchRec sr, String f
 	item->ImageIndex = fi.iIcon;
 	item->OnClick = MenuClick;
 	parent->Add(item);
-	return(item);
+	return (item);
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TForm1::MenuClick(TObject *Sender)
-{
+void __fastcall TForm1::MenuClick(TObject *Sender) {
 	TMenuItem *item = (TMenuItem*)Sender;
 	if (item->Tag != faDirectory) {
-		ShellExecute(0, L"open", item->Hint.w_str() , NULL, NULL, SW_SHOWNORMAL);
+		ShellExecute(0, L"open", item->Hint.w_str(), NULL, NULL, SW_SHOWNORMAL);
 	}
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TForm1::RestoreClick(TObject *Sender)
-{
+void __fastcall TForm1::RestoreClick(TObject *Sender) {
 	this->Visible = true;
 	this->WindowState = wsNormal;
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TForm1::ExitClick(TObject *Sender)
-{
+void __fastcall TForm1::ExitClick(TObject *Sender) {
 	exit(0);
 }
-
+void __fastcall TForm1::btnAboutClick(TObject *Sender)
+{
+	Form2->ShowModal();
+}
 

@@ -1,0 +1,42 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'About'
+  ClientHeight = 180
+  ClientWidth = 304
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object memAbout: TMemo
+    Left = 0
+    Top = 0
+    Width = 304
+    Height = 180
+    Align = alClient
+    Lines.Strings = (
+      ' |'#12288'  ttlogin++                     '#12288#12288#12288#65295
+      #12288'|'#12288'     ver. 2014.11.09         '#12288#65295
+      '.'#12288#12288#12288#65343#65343'__'
+      #12288#12288#12288'| |'#12539#8704#12539'|'#12288#65295#8978#8978#12541
+      #12288#12288#12288'| |'#65340' '#12288'|`'#65394#12288' '#12494#12495#12355#65289#12288#65398#65400' '
+      '.'#12288' (( |_|'#65343#65384#8978'`'#65379' '#8741#39' '#65380' '#65407'|'
+      #12288#12288#12288' '#12494' '#12392#65380'_'#20837'`_,'#12388' '#955' '#12358
+      #12288#65398#65400
+      ''
+      'date:'#9'2014/11/09'
+      'author:'#9'793 '#9670'7BJkZFw08A / DarkEra Software'
+      'email:'#9'leiqunni@yahoo.co.jp'
+      'web:'#9'https://github.com/leiqunni/ttlogin')
+    TabOrder = 0
+    OnClick = memAboutClick
+    ExplicitWidth = 260
+  end
+end

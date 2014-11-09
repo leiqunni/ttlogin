@@ -1,8 +1,8 @@
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 #ifndef mainH
 #define mainH
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
 #include <StdCtrls.hpp>
@@ -13,10 +13,12 @@
 #include <IOUtils.hpp>
 #include <IniFiles.hpp>
 
-//---------------------------------------------------------------------------
-class TForm1 : public TForm
-{
-__published:	// IDE で管理されるコンポーネント
+#include "about.h"
+
+// ---------------------------------------------------------------------------
+class TForm1 : public TForm {
+__published: // IDE で管理されるコンポーネント
+
 	TTrayIcon *TrayIcon;
 	TGroupBox *grbPath;
 	TLabel *lblLanguage;
@@ -33,26 +35,32 @@ __published:	// IDE で管理されるコンポーネント
 	TCheckBox *chbMinimized;
 	TPopupMenu *popCom;
 	TImageList *ImageListSmall;
+
 	void __fastcall btnApplyClick(TObject *Sender);
+	void __fastcall btnAboutClick(TObject *Sender);
+	void __fastcall RestoreClick(TObject *Sender);
+	void __fastcall ExitClick(TObject *Sender);
 
+private: // ユーザー宣言
 
-private:	// ユーザー宣言
 	String IniFile, LangFile;
 
 	void __fastcall TForm1::LoadIni();
 	void __fastcall TForm1::SaveIni();
+	void __fastcall TForm1::LangIni();
 	void __fastcall TForm1::InitMenu();
 	void __fastcall TForm1::FindFile(TMenuItem *parent, String path);
 	void __fastcall TForm1::FindFile2(TMenuItem *parent, String path);
 	void __fastcall TForm1::MenuClick(TObject *Sender);
-	void __fastcall TForm1::RestoreClick(TObject *Sender);
-	void __fastcall TForm1::ExitClick(TObject *Sender);
-		TMenuItem* __fastcall TForm1::AddMenu(TMenuItem *parent, TSearchRec sr, String fullPath);
 
-public:		// ユーザー宣言
-	__fastcall TForm1(TComponent* Owner);
+	TMenuItem *__fastcall TForm1::AddMenu(TMenuItem *parent, TSearchRec sr, String fullPath);
+
+public: // ユーザー宣言
+	__fastcall TForm1(TComponent *Owner);
+
 };
-//---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #endif
