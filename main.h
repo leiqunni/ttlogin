@@ -40,6 +40,7 @@ __published: // IDE で管理されるコンポーネント
 	void __fastcall btnAboutClick(TObject *Sender);
 	void __fastcall RestoreClick(TObject *Sender);
 	void __fastcall ExitClick(TObject *Sender);
+	void __fastcall FormActivate(TObject *Sender);
 
 private: // ユーザー宣言
 

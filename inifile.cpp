@@ -19,6 +19,7 @@ void __fastcall TForm1::LoadIni() {
 	chbSort->Checked = ini->ReadBool("Option", "Sort", true);
 	chbSubDirectory->Checked = ini->ReadBool("Option", "SubDirectory", true);
 	chbMinimized->Checked = ini->ReadBool("Option", "Minimized", false);
+
 	if (chbMinimized->Checked) {
 		this->Visible = False;
 		this->WindowState = wsMinimized;

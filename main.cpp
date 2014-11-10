@@ -19,19 +19,28 @@ __fastcall TForm1::TForm1(TComponent *Owner) : TForm(Owner) {
 
 	LoadIni();
 	LangIni();
+}
 
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::FormActivate(TObject *Sender) {
 	InitMenu();
 }
-// ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
 void __fastcall TForm1::btnApplyClick(TObject *Sender) {
 	SaveIni();
 	LoadIni();
 	InitMenu();
 }
-// ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
 void __fastcall TForm1::InitMenu() {
+	Screen->Cursor = crHourGlass;
+	btnApply->Enabled = false;
+
+	// TIcon *icon = new TIcon();
+	// icon->LoadFromResourceName((unsigned int)HInstance, L"icnIcon");
+
 	popCom->Items->Clear();
 
 	if (TDirectory::Exists(edtDirectory->Text)) {
@@ -60,6 +69,9 @@ void __fastcall TForm1::InitMenu() {
 	item->Caption = "E&xit";
 	item->OnClick = ExitClick;
 	popCom->Items->Add(item);
+
+	Screen->Cursor = crDefault;
+	btnApply->Enabled = true;
 }
 // ---------------------------------------------------------------------------
 
@@ -71,7 +83,7 @@ void __fastcall TForm1::FindFile(TMenuItem *parent, String path) {
 			if (sr.Name == "." || sr.Name == "..")
 				continue;
 			TMenuItem *item = AddMenu(parent, sr, TPath::Combine(path, sr.Name));
-			if (sr.Attr & faDirectory) {
+			if (sr.Attr & faDirectory && chbSubDirectory->Checked) {
 				FindFile(item, TPath::Combine(path, sr.Name));
 			}
 		}
@@ -90,7 +102,7 @@ void __fastcall TForm1::FindFile2(TMenuItem *parent, String path) {
 			if (sr.Name == "." || sr.Name == ".." || sr.Attr != faDirectory)
 				continue;
 			TMenuItem *item = AddMenu(parent, sr, TPath::Combine(path, sr.Name));
-			if (sr.Attr & faDirectory) {
+			if (sr.Attr & faDirectory && chbSubDirectory->Checked) {
 				FindFile2(item, TPath::Combine(path, sr.Name));
 			}
 		}
@@ -121,6 +133,7 @@ TMenuItem *__fastcall TForm1::AddMenu(TMenuItem *parent, TSearchRec sr, String f
 	item->ImageIndex = fi.iIcon;
 	item->OnClick = MenuClick;
 	parent->Add(item);
+
 	return (item);
 }
 // ---------------------------------------------------------------------------
@@ -142,8 +155,10 @@ void __fastcall TForm1::RestoreClick(TObject *Sender) {
 void __fastcall TForm1::ExitClick(TObject *Sender) {
 	exit(0);
 }
-void __fastcall TForm1::btnAboutClick(TObject *Sender)
-{
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::btnAboutClick(TObject *Sender) {
 	Form2->ShowModal();
 }
 
+// ---------------------------------------------------------------------------
